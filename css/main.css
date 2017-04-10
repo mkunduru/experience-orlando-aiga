@@ -95,9 +95,15 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+    overflow: hidden;
+    margin: 0;
+}
 
-
-
+svg {
+    width: 100vw;
+    height: 100vh;
+}
 
 
 
