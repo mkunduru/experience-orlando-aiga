@@ -42,3 +42,20 @@ body {
     margin-top: 1em;
     box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
 }
+
+@media only screen and (max-width: 1500px) {
+    .character {
+        height: 35vh;
+        margin-top: 10vh;
+    }
+
+    .position {
+        margin-bottom: 3em;
+    }
+
+    .button {
+        width: 18vw;
+        font-size: 24px;
+        padding: 0.4em 0.6em 0.7em 0.6em;
+    }
+}

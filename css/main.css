@@ -154,6 +154,13 @@ a {
     color: #fff;
 }
 
+h1.result {
+    font-family: 'Chicle', cursive;
+    font-size: 72px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
 .page-title {
     position: absolute;
     top: 7vh;
@@ -275,8 +282,8 @@ a {
     top: 0;
     left: 0;
     text-align: center;
-    padding-top: 4%;
-    font-family: 'Roboto', sans-serif;
+    padding-top: 6%;
+    font-family: 'Source Sans Pro', sans-serif;
     color: #fff;
     display: none;
 }

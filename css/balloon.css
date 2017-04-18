@@ -11,21 +11,6 @@ svg {
     display: block;
 }
 
-.result-overlay {
-    background-color: #1abc9c;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 500;
-    top: 0;
-    left: 0;
-    text-align: center;
-    padding-top: 6%;
-    font-family: 'Roboto', sans-serif;
-    color: #fff;
-    display: none;
-}
-
 .instruction-overlay {
     position: absolute;
     top: 0;
@@ -66,6 +51,15 @@ svg {
     right: 10vw;
     top: 10vh;
     height: 30vh;
+}
+
+.instruction-title {
+    position: absolute;
+    font-size: 28px;
+    color: #fff;
+    font-family: 'Chicle', cursive;
+    letter-spacing: 1px;
+    margin: 0.6em 4em;
 }
 
 .instruction-collect svg {

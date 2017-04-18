@@ -52,7 +52,7 @@ a {
 }
 
 .subtitle {
-    font-family: 'Raleway Thin', sans-serif;
+    font-family: 'Raleway Light', sans-serif;
     font-size: 20px;
     margin: -0.8em 0 0 5em;
 
@@ -150,5 +150,32 @@ a {
 @keyframes enter-flight {
     100% {
         left: 100vw;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .top-fold {
+        height: 65vh;
+    }
+
+    .bottom-fold {
+        height: 35vh;
+    }
+
+   .desc {
+        width: 40vw;
+        margin: 3em auto 0 auto;
+    } 
+
+    .button {
+        margin-top: 1em;
+    }
+
+    h4 {
+        font-family: 'Raleway Thin', sans-serif;
+        font-size: 32px;
+        margin-left: 20vw;
+        width: 10vw;
+        text-align: left;
     }
 }
