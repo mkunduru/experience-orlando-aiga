@@ -1,0 +1,217 @@
+body {
+    overflow: hidden;
+    margin: 0;
+}
+
+.journey {
+    width: 100%;
+    height: 100%;
+    background-color: #46c6e5;
+}
+
+.map {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    height: auto;
+    /*transform: translate(-5%);*/
+}
+
+.landing-map {
+    position: absolute;
+    z-index: 1200;
+    height: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+@keyframes move-landing-map {
+  100% {
+    right: 100;
+  }
+}
+
+@keyframes zoom-landing-map {
+  100% {
+    transform: scale(2);
+  }
+}
+
+#flight-path {
+    display: none;
+}
+
+/*** Cloud Animation ***/
+.cloud {
+    position: absolute;
+    right: -100px;
+    opacity: 0;
+    z-index: 500;
+    animation: move-cloud linear infinite;
+}
+
+.cloud--start {
+    animation: move-cloud linear infinite;
+}
+
+.cloud1 {
+    top: 12%;
+    width: 130px;
+    animation-duration: 30s;
+    animation-delay: -5s;
+}
+
+.cloud2 {
+    top: 6%;
+    width: 100px;
+    animation-duration: 30s;
+    animation-delay: -8s;
+}
+
+.cloud3 {
+    top: 25%;
+    width: 80px;
+    animation-duration: 30s;
+    animation-delay: 12s;
+}
+
+.cloud4 {
+    top: 18%;
+    width: 130px;
+    animation-duration: 45s;
+    animation-delay: -20s;
+}
+
+.cloud5 {
+    top: 35%;
+    width: 100px;
+    animation-duration: 45s;
+    animation-delay: 16s;
+}
+
+.cloud6 {
+    top: 30%;
+    width: 125px;
+    animation-duration: 45s;
+    animation-delay: 24s;
+}
+
+.cloud7 {
+    top: 10%;
+    width: 125px;
+    animation-duration: 45s;
+    animation-delay: 30s;
+}
+
+.cloud8 {
+    top: 20%;
+    width: 150px;
+    animation-duration: 45s;
+    animation-delay: -36s;
+}
+
+.cloud9 {
+    top: 26%;
+    width: 100px;
+    animation-duration: 45s;
+    animation-delay: 40s;
+}
+
+@keyframes move-cloud {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-120vw);
+    opacity: 1;
+  }
+}
+
+/*********** Scrambled Text *************************/
+
+.soup-title {
+  font-size: 26px;
+  color: #fff;
+  font-family: 'Source Sans Pro Light', sans-serif;
+}
+
+.soup-desc {
+  margin-top: 3%;
+  font-size: 26px;
+  color: #fff;
+  font-family: 'Source Sans Pro Light', sans-serif;
+}
+
+#soup-container {
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  min-height: 480px;
+  position: relative;
+}
+
+.letters-wrap {
+  position: absolute;
+  overflow: hidden;
+  display: inline-block;
+}
+.letters-wrap.mutable {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.letters-wrap.mutable .letter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: left 2s, top 2s, color 2s;
+  color: #FFF;
+}
+.letters-wrap.mutable .letter.active {
+  color: "#FFF";
+  z-index: 9001;
+}
+.letters-wrap.position-data {
+  top: 60%;
+  left: 50%;
+  /*opacity: 0.1;*/
+  visibility: hidden;
+  transform: translate(-50%, -50%);
+}
+
+.segment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.button {
+  z-index: 9001;
+  position: relative;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.25em 1em;
+  cursor: pointer;
+}
+
+.button:hover {
+  border: 1px solid red;
+}
+
+#navigate {
+  position: absolute;
+  top: 80%;
+  width: 100%;
+  height: 5%;
+  z-index: 9001;
+  font-size: 26px;
+  text-align: center;
+  display: none;
+  color: #fff;
+  font-family: 'Source Sans Pro Light', sans-serif;
+}
