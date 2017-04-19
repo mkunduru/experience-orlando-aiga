@@ -9,7 +9,7 @@ body {
     background-color: #11bfb2;
     color: #fff;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
     text-align: center;
 }
 
@@ -34,11 +34,11 @@ body {
 .button {
     /*margin: 10vh auto;*/
     background-color: #FF811e;
-    font-family: 'Source Sans Pro ExtraLight';
-    font-size: 28px;
+    font-family: 'Raleway ExtraLight';
+    font-size: 24px;
     letter-spacing: 0.5px;
     padding: 0.6em 1em 0.8em 1em;
-    width: 12vw;
+    width: 12.5vw;
     margin-top: 1em;
     box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
 }

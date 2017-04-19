@@ -94,7 +94,7 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-@font-face {
+/*@font-face {
     font-family: 'Source Sans Pro';
     src: url('../fonts/SourceSansPro-Regular.ttf');
 }
@@ -107,7 +107,7 @@ textarea {
 @font-face {
     font-family: 'Source Sans Pro ExtraLight';
     src: url('../fonts/SourceSansPro-ExtraLight.ttf');
-}
+}*/
 
 @font-face {
     font-family: 'Chicle';
@@ -132,6 +132,16 @@ textarea {
 @font-face {
     font-family: 'Raleway Thin';
     src: url('../fonts/Raleway-Thin.ttf');
+}
+
+@font-face {
+    font-family: 'Raleway ExtraLight';
+    src: url('../fonts/Raleway-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Raleway SemiBold';
+    src: url('../fonts/Raleway-SemiBold.ttf');
 }
 
 body {
@@ -470,7 +480,7 @@ a {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+@media only screen and (max-width: 1280px) {
     /* Style adjustments for viewports that meet the condition */
 }
 
