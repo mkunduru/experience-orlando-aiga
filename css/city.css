@@ -51,40 +51,127 @@ body {
     z-index: 300;
 }
 
+.info-img.hover {
+    transform: scale(1.3);
+}
+
+#stadiuminfo .info-img.buzz {
+    animation: 5s buzz linear 1s infinite;
+}
+
+#downtowninfo .info-img.buzz {
+    animation: 5s buzz-next linear 1s infinite;
+}
+
+#orlandoeyeinfo .info-img.buzz {
+    animation: 5s buzz linear 1s infinite;
+}
+
+#kayakinfo .info-img.buzz {
+    animation: 5s buzz-next linear 1s infinite;
+}
+
+@keyframes buzz {
+    4% {
+        transform: translateY(10px);
+    }
+    8% {
+       transform: translateY(0); 
+    }
+    12% {
+       transform: translateY(7px); 
+    }
+    16% {
+       transform: translateY(0); 
+    }
+    20% {
+       transform: translateY(4px); 
+    }
+    24% {
+       transform: translateY(0); 
+    }
+}
+
+@keyframes buzz-next {
+    46% {
+        transform: translateY(0); 
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    54% {
+       transform: translateY(0); 
+    }
+    58% {
+       transform: translateY(7px); 
+    }
+    62% {
+       transform: translateY(0); 
+    }
+    66% {
+       transform: translateY(4px); 
+    }
+    70% {
+       transform: translateY(0); 
+    }
+}
+
 .info-icon {
     position: absolute;
 }
 
 .play-icon {
     position: absolute;
-    font: 400 21px/1.6em 'Source Sans Pro', sans-serif;
+    font: 400 18px/1.6em 'Raleway Medium', sans-serif;
     color: #FF1744;
     text-align: center;
+    letter-spacing: 0.5px;
 }
 
 .play-button {
     background-color: #FF1744;
     color: #FFF;
     font-size: 18px;
-    padding: 0.3em 1em;
-    border-radius: 10px;
+    padding: 0.3em 1em 0.45em 1em;
+    border-radius: 7px;
+    letter-spacing: 1px;
+    box-shadow: -4px 5px 0 rgba(0,0,0,0.15);
+    transition: all 0.5s;
+}
+
+.play-button:hover {
+    box-shadow: -2px 3px 0 rgba(0,0,0,0.15);
 }
 
 h3 {
     font-weight: 400;
     margin: 0.6em 0;
+    color: #666;
+    font-size: 18px;
+    font-family: 'Raleway Medium';
 }
 
 .landmark-info {
     position: absolute;
     background-color: #fff;
     padding: 0.5em 1em;
-    color: #808080;
-    width: 20vw;
+    color: #999999;
+    width: 22vw;
     top: 0;
     left: 0;
-    box-shadow: -5px 5px 0 rgba(0,0,0,0.2);
+    box-shadow: -6px 7px 0 rgba(0,0,0,0.15);
     opacity: 0;
+    font-family: 'Raleway Medium', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+#downtowninfo .landmark-info {
+    width: 26vw;
+}
+
+#kayakinfo .landmark-info {
+    width: 21vw;
 }
 
 /*.landmark-info:after {
@@ -115,7 +202,7 @@ h3 {
 .info-close {
     position: absolute;
     top: 5px;
-    right: 10px;
+    right: 5px;
     color: #000;
     cursor: pointer;
 }
@@ -138,27 +225,31 @@ h3 {
 
 .firework-2 {
     width: 6vw;
-    top: -5vh;
+    top: -15vh;
+    left: 2vw;
 }
 
 .firework-3 {
     width: 5vw;
     top: -15vh;
+    left: 3vh;
 }
 
 .firework-4 {
-    width: 4vw;
-    top: -35vh;
+    width: 7vw;
+    top: -32vh;
+    left: 2vh;
 }
 
 .firework-5 {
-    width: 3.5vw;
-    top: -35vh;
+    width: 6vw;
+    top: -50vh;
+    left: -3vw;
 }
 
 .firework-6 {
     width: 7vw;
-    top: -45vh;
+    top: -50vh;
 }
 
 .firework-1 {

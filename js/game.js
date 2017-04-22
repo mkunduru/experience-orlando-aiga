@@ -95,10 +95,10 @@ function start_timer() {
 
 function get_timer_value(time) {
   if(time < 10) {
-    return "0:0"+time.toString();
+    return "0 : 0"+time.toString();
   } 
   else {
-    return "0:"+time.toString();
+    return "0 : "+time.toString();
   }
 }
 
@@ -106,7 +106,11 @@ function get_timer_value(time) {
    Toolbar functions
    ========================================================================== */
 function set_game_level() {
-  $('.game_level').text(game_level);
+  $('.game_level').text(game_level+" ");
+}
+
+function set_game_level_score(points) {
+  $('.toolbar__value__game-score').text(points);
 }
 
 function show_toolbar() {
@@ -116,7 +120,7 @@ function show_toolbar() {
 }
 
 function reset_toolbar() {
-    $('.toolbar__score').find('.toolbar__value').text(0);
+    $('.toolbar__score').find('.toolbar__value__score').text(0);
 }
 
 function set_toolbar_timer(time) {
@@ -130,7 +134,7 @@ function update_score_html(points) {
 }
 
 function insert_score_html(points) {
-  $('.toolbar__score').find('.toolbar__value').text(points);
+  $('.toolbar__score__value').text(points);
 }
 
 function remove_toolbar_exit() {
@@ -162,9 +166,10 @@ function game_winner() {
 }
 
 function game_over() {
-  update_result_message("Game Over");
+  update_result_message("Game Over.");
   show_loser();
   show_results();
+  clean_slate();
 }
 
 /* ==========================================================================
@@ -210,7 +215,7 @@ function announce_level_up(level) {
         setTimeout(function(){
          $('.level-overlay__message').hide();
         }, 400);
-      }, 2300);
+      }, 1800);
     }
     else {
       initialize_game(game_level + 1);

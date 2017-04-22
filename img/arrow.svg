@@ -4,7 +4,7 @@
 	 viewBox="0 0 13.7 25.9" style="enable-background:new 0 0 13.7 25.9;" xml:space="preserve">
      <style>
         polyline {
-            stroke-width: 2px; 
+            stroke-width: 3px; 
         }
     </style>
 <polyline id="next-arrow" style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" points="0.4,25.5 12.9,12.9 0.4,0.4 "/>

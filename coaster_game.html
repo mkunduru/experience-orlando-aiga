@@ -80,11 +80,11 @@
             </div>
         </div>
         <div class="result-overlay">
-            <h1 class="result">Game Over!</h1>
-            <p class="final-score">Your Score: <span class="final_points"></span>
+            <h1 class="result">Game Over.</h1>
+            <p class="final-score">Your Score : <span class="final_points"></span>
             <div class="character">
-                <img class="winner" src="img/games/winner.svg" width="200">
-                <img class="loser" src="img/games/loser.svg" width="200">
+                <img class="winner" src="img/games/winner.svg" width="250">
+                <img class="loser" src="img/games/loser.svg" width="250">
             </div>
             <div class="buttons">
                 <ul>
@@ -102,29 +102,125 @@
                 <p class="message">Keep Going!</p>
             </div>
         </div>
+        <div class="in-game-instruction">
+            <svg id = "in-game-instruction" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 576 576" style="enable-background:new 0 0 576 576;" xml:space="preserve">
+                <style type="text/css">
+                    .inst_st0{opacity:0.2;}
+                    .inst_st1{fill:#FFFFFF;}
+                    .inst_st2{fill:#F2F2F2;}
+                    .inst_st3{fill:#999999;}
+                    .inst_st4{opacity:0.2;enable-background:new    ;}
+                    .inst_st5{fill:#FFC107;}
+                </style>
+                <g>
+                    <g class="inst_st0">
+                        <circle cx="239.9" cy="259.7" r="94.7"/>
+                        <circle cx="339.3" cy="267.1" r="92.6"/>
+                        <circle cx="269.8" cy="342.9" r="92.6"/>
+                        <circle cx="151" cy="296.4" r="47.8"/>
+                        <circle cx="167.2" cy="387.5" r="62.2"/>
+                        <circle cx="230.4" cy="452.5" r="62.2"/>
+                        <circle cx="329.1" cy="449.5" r="75.1"/>
+                        <circle cx="393.9" cy="378.4" r="69.6"/>
+                        <circle cx="423.5" cy="302.6" r="50.6"/>
+                        <circle cx="298.6" cy="201.8" r="52.2"/>
+                    </g>
+                    <g>
+                        <circle class="inst_st1" cx="243.7" cy="242.1" r="94.7"/>
+                        <circle class="inst_st1" cx="343.1" cy="249.4" r="92.6"/>
+                        <circle class="inst_st1" cx="273.6" cy="325.3" r="92.6"/>
+                        <circle class="inst_st1" cx="154.8" cy="278.7" r="47.8"/>
+                        <circle class="inst_st1" cx="171" cy="369.9" r="62.2"/>
+                        <circle class="inst_st1" cx="234.2" cy="434.9" r="62.2"/>
+                        <circle class="inst_st1" cx="332.9" cy="431.9" r="75.1"/>
+                        <circle class="inst_st1" cx="397.8" cy="360.7" r="69.6"/>
+                        <circle class="inst_st1" cx="427.3" cy="285" r="50.6"/>
+                        <circle class="inst_st1" cx="302.4" cy="184.2" r="52.2"/>
+                    </g>
+                </g>
+                <g id="instruction_keys">
+                    <g id="instruction_leftkey">
+                        <g class="inst_st0">
+                            <path d="M219.7,323.8h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1v-48.4
+                                C229.9,328.3,225.3,323.8,219.7,323.8z"/>
+                        </g>
+                        <g>
+                            <path class="inst_st2" d="M226.6,315.2h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                                v-48.4C236.7,319.8,232.2,315.2,226.6,315.2z"/>
+                            <polygon class="inst_st3" points="206.9,359.4 192.3,349.6 206.9,339.8            "/>
+                        </g>
+                    </g>
+                    <g id="instruction_downkey">
+                        <g>
+                            <path class="inst_st0" d="M308.8,323.8h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                            v-48.4C319,328.3,314.4,323.8,308.8,323.8z"/>
+                        </g>
+                        <g>
+                            <path class="inst_st2" d="M315.7,315.2h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                            v-48.4C325.8,319.8,321.3,315.2,315.7,315.2z"/>
+                            <polygon class="inst_st3" points="301.4,344 291.6,358.6 281.8,344        "/>
+                        </g>
+                    </g>
+                    <g id="instruction_upkey">
+                        <g class="inst_st0">
+                            <path d="M309,234.8h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1H309c5.6,0,10.1-4.5,10.1-10.1V245
+                                C319.1,239.4,314.6,234.8,309,234.8z"/>
+                        </g>
+                        <g>
+                            <path class="inst_st2" d="M315.8,226.3h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                                v-48.4C326,230.8,321.4,226.3,315.8,226.3z"/>
+                            <polygon class="inst_st3" points="281.8,265.7 291.6,251.2 301.4,265.7            "/>
+                        </g>
+                    </g>
+                    <g id="instruction_rightkey">
+                        <g class="inst_st0">
+                            <path d="M397.9,323.8h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1v-48.4
+                                C408,328.3,403.5,323.8,397.9,323.8z"/>
+                        </g>
+                        <g>
+                            <path class="inst_st2" d="M404.7,315.2h-48.4c-5.6,0-10.1,4.5-10.1,10.1v48.4c0,5.6,4.5,10.1,10.1,10.1h48.4c5.6,0,10.1-4.5,10.1-10.1
+                                v-48.4C414.9,319.8,410.4,315.2,404.7,315.2z"/>
+                            <polygon class="inst_st3" points="376,339.8 390.6,349.6 376,359.4            "/>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
         <div class="toolbar">
             <ul>
                 <li class="toolbar__score">
                     <ul>
-                        <li class="toolbar__value">0</li>
+                        <li class="toolbar__value"><span class="toolbar__score__value">0</span> / <span class="toolbar__value__game-score">1000</span></li>
                         <li class="toolbar__title">SCORE</li>
                     </ul>
                 </li>
                 <li class="toolbar__level">
                     <ul>
-                        <li class="toolbar__value"><span class="game_level">0</span>/3</li>
+                        <li class="toolbar__value"><span class="game_level">0</span> / 3</li>
                         <li class="toolbar__title">LEVEL</li>
                     </ul>
                 </li>
                 <li class="toolbar__timer">
                     <ul>
-                        <li class="toolbar__value">0:00</li>
+                        <li class="toolbar__value">0 : 00</li>
                         <li class="toolbar__title">TIME</li>
                     </ul>
                 </li>
             </ul>
             <div class="toolbar__exit">
                 <img src="img/games/close.svg">
+            </div>
+        </div>
+        <div class="timeout-overlay">
+            <div class="timeout-overlay__cloud">
+                <img src="img/inactivecloud.svg">
+            </div>
+            <div class="timeout-overlay__text">
+                <p class="timeout-overlay__text__timer">10</p>
+                <p class="timeout-overlay__text__popup">Would you like to start over?</p>
+                <a class="button idle-yes">Yes</a>
+                <a class="button idle-no">No</a>
             </div>
         </div>
         <div class="container">

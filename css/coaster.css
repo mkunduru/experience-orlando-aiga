@@ -16,6 +16,17 @@ svg {
     display: block;
 }
 
+.in-game-instruction {
+    position: fixed;
+    display: none;
+    z-index: 5000;
+}
+
+#in-game-instruction {
+    width: 50vh;
+    height: 50vh;
+}
+
 .keyboard {
     position: fixed;
     top: 0;
@@ -105,36 +116,27 @@ svg {
 }
 
 .coaster-slow {
-    animation: move-coaster-slow 45s linear forwards 2s;
+    animation: move-coaster-slow 60s linear forwards;
 }
 
 @keyframes move-coaster-slow {
-    20% {
-        transform: translate(-500px, 0);
-    }
     100% {
-        transform: translate(-5000px, 0);
+        transform: translate(-10000px, 0);
     }
 }
 
 .coaster-medium {
-    animation: move-coaster-medium 45s linear forwards 2s;
+    animation: move-coaster-medium 40s linear forwards;
 }
 
 @keyframes move-coaster-medium {
-    20% {
-        transform: translate(-1500px, 0);
-    }
-    70% {
-        transform: translate(-4400px, 0);
-    }
     100% {
-        transform: translate(-6800px, 0);
+        transform: translate(-10000px, 0);
     }
 }
 
 .coaster-fast {
-    animation: move-coaster-fast 45s linear forwards 4s;
+    animation: move-coaster-fast 30s linear forwards;
 }
 
 @keyframes move-coaster-fast {

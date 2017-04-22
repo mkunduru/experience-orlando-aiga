@@ -23,26 +23,26 @@ svg {
 
 .instruction-balloonkeys {
     position: absolute;
-    left: 5vw;
-    top: 30vh;
+    left: 7vw;
+    top: 38vh;
 }
 
 .instruction-balloonkeys svg {
-    width: 25vw;
-    height: 25vh;
+    width: 18vw;
+    height: 18vh;
 }
 
 .instruction-balloon {
     position: absolute;
     left: 30vw;
-    top: 10vh;
+    top: 18vh;
     height: 55vh;
     z-index: 600;
 }
 
 .instruction-balloon svg {
-    width: 45vw;
-    height: 45vh;
+    width: 40vw;
+    height: 40vh;
     padding-top: 10vh;
 }
 
@@ -55,21 +55,16 @@ svg {
 
 .instruction-title {
     position: absolute;
-    font-size: 28px;
+    font-size: 36px;
     color: #fff;
     font-family: 'Chicle', cursive;
-    letter-spacing: 1px;
-    margin: 0.6em 4em;
-}
-
-.instruction-collect svg {
-    width: 20vw;
-    height: 40vh;
+    letter-spacing: 1.5px;
+    margin: 0.6em 4.5em 0.6em 6.8em;
 }
 
 .instruction-collect {
     position: absolute;
-    right: 10vw;
+    right: 2vw;
     top: 15vh;
 }
 
@@ -78,14 +73,23 @@ svg {
     height: 32.5vh;
 }
 
+.instruction-collect svg {
+    width: 30vw;
+}
+
 .instruction-avoid {
     position: absolute;
-    right: 10vw;
+    right: 2vw;
     top: 50vh;
 }
 
 .instruction-avoid svg {
     width: 20vw;
+    height: 32.5vh;
+}
+
+.instruction-avoid svg {
+    width: 30vw;
     height: 32.5vh;
 }
 
@@ -119,6 +123,8 @@ svg {
 
 .gift {
     color: #fff;
+    font-size: 36px;
+    font-family: 'Raleway SemiBold';
 }
 
 .blink {
@@ -139,6 +145,20 @@ svg {
     position: absolute;
     width: 50px;
 }
+
+.bird {
+    width: 81px;
+}
+
+.hourglass {
+    width: 40px;
+}
+
+.lollipop {
+    width: 45px;
+}
+
+
 
 .candy, .hourglass {
     transform-origin: 50% 50%;
@@ -177,8 +197,8 @@ svg {
 .cloud2 {
     left: 60%;
     width: 100px;
-    animation-duration: 10s;
-    animation-delay: 0;
+    animation-duration: 13s;
+    animation-delay: 11;
 }
 
 .cloud3 {
@@ -191,7 +211,7 @@ svg {
 .cloud4 {
     left: 45%;
     width: 125px;
-    animation-duration: 8s;
+    animation-duration: 13s;
     animation-delay: 8s;
 }
 
@@ -209,8 +229,29 @@ svg {
     animation-delay: 9s;
 }
 
+.cloud7 {
+    left: 10%;
+    width: 80px;
+    animation-duration: 13s;
+    animation-delay: -4s;
+}
+
+.cloud8 {
+    left: 40%;
+    width: 105px;
+    animation-duration: 21s;
+    animation-delay: 9s;
+}
+
+.cloud9 {
+    left: 70%;
+    width: 150px;
+    animation-duration: 13s;
+    animation-delay: 0;
+}
+
 .notransition {
-    animation: no-transition 1s linear infinite;
+    animation: no-transition 1.5s linear forwards;
 }
 
 /************************************************
@@ -218,10 +259,11 @@ Animations
 *************************************************/
 @keyframes move-cloud {
   0% {
+    transform: scale(1.5);
     opacity: 1;
   }
   100% {
-    transform: translateY(120vh);
+    transform: translateY(105vh) scale(1.5);
     opacity: 1;
   }
 }
@@ -302,6 +344,7 @@ Animations
     }
     100% {
         transform: rotate(0deg);
+        opacity: 0;
     }
 }
 

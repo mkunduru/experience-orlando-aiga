@@ -468,11 +468,11 @@
             </div>
         </div>
         <div class="result-overlay">
-            <h1 class="result">Game Over!</h1>
-            <p class="final-score">Your Score: <span class="final-points"></span>
+            <h1 class="result">Game Over.</h1>
+            <p class="final-score">Your Score : <span class="final-points"></span>
             <div class="character">
-                <img class="winner" src="img/games/winner.svg" width="200">
-                <img class="loser" src="img/games/loser.svg" width="200">
+                <img class="winner" src="img/games/winner.svg" width="250">
+                <img class="loser" src="img/games/loser.svg" width="250">
             </div>
             <div class="buttons">
                 <ul>
@@ -542,19 +542,19 @@
             <ul>
                 <li class="toolbar__score">
                     <ul>
-                        <li class="toolbar__value">0</li>
+                        <li class="toolbar__value toolbar__value__score">0</li>
                         <li class="toolbar__title">SCORE</li>
                     </ul>
                 </li>
                 <li class="toolbar__level">
                     <ul>
-                        <li class="toolbar__value"><span class="game_level">0</span>/3</li>
+                        <li class="toolbar__value"><span class="game_level">0 </span>/ 3</li>
                         <li class="toolbar__title">LEVEL</li>
                     </ul>
                 </li>
                 <li class="toolbar__timer">
                     <ul>
-                        <li class="toolbar__value">0:00</li>
+                        <li class="toolbar__value">0 : 00</li>
                         <li class="toolbar__title">TIME</li>
                     </ul>
                 </li>
@@ -562,6 +562,31 @@
             <div class="toolbar__exit">
                 <img src="img/games/close.svg">
             </div>
+        </div>
+        <div class="timeout-overlay">
+            <div class="timeout-overlay__cloud">
+                <img src="img/inactivecloud.svg">
+            </div>
+            <div class="timeout-overlay__text">
+                <p class="timeout-overlay__text__timer">10</p>
+                <p class="timeout-overlay__text__popup">Would you like to start over?</p>
+                <a class="button idle-yes">Yes</a>
+                <a class="button idle-no">No</a>
+            </div>
+        </div>
+        <div class="points-overlay">
+            <div class='points-text w1'>100</div>
+            <div class='points-text w2'>100</div>
+            <div class='points-text w3'>100</div>
+            <div class='points-text w4'>100</div>
+            <div class='points-text w5'>100</div>
+            <div class='points-text w6'>100</div>
+            <div class='points-text w7'>100</div>
+            <div class='points-text w8'>100</div>
+            <div class='points-text w9'>100</div>
+            <div class='points-text w10'>100</div>
+            <div class='points-text w11'>100</div>
+            <div class='points-text w12'>100</div>
         </div>
         <div class="container">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

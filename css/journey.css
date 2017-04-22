@@ -57,7 +57,7 @@ body {
     animation: move-cloud linear infinite;
 }
 
-.cloud1 {
+/*.cloud1 {
     top: 12%;
     width: 130px;
     animation-duration: 30s;
@@ -68,42 +68,42 @@ body {
     top: 6%;
     width: 100px;
     animation-duration: 30s;
-    animation-delay: -8s;
+    animation-delay: -26s;
 }
 
 .cloud3 {
     top: 25%;
     width: 80px;
     animation-duration: 30s;
-    animation-delay: 12s;
-}
+    animation-delay: 2s;
+}*/
 
 .cloud4 {
-    top: 18%;
+    top: 21%;
     width: 130px;
     animation-duration: 45s;
     animation-delay: -20s;
 }
 
 .cloud5 {
-    top: 35%;
+    top: 15%;
     width: 100px;
     animation-duration: 45s;
-    animation-delay: 16s;
+    animation-delay: -5s;
 }
 
 .cloud6 {
-    top: 30%;
+    top: 7%;
     width: 125px;
     animation-duration: 45s;
-    animation-delay: 24s;
+    animation-delay: -12s;
 }
 
 .cloud7 {
     top: 10%;
     width: 125px;
     animation-duration: 45s;
-    animation-delay: 30s;
+    animation-delay: -28s;
 }
 
 .cloud8 {
@@ -117,15 +117,16 @@ body {
     top: 26%;
     width: 100px;
     animation-duration: 45s;
-    animation-delay: 40s;
+    animation-delay: 0;
 }
 
 @keyframes move-cloud {
   0% {
     opacity: 1;
+    transform: scale(1.4);
   }
   100% {
-    transform: translateX(-120vw);
+    transform: translateX(-105vw) scale(1.4);
     opacity: 1;
   }
 }
@@ -137,27 +138,28 @@ body {
   top: 41vh;
   left: 19vw;
   z-index: 1400;
-  font-family: 'Raleway ExtraLight', sans-serif;
+  font-family: 'Raleway Regular', sans-serif;
   font-size: 24px;
   line-height: 36px;
   color: #fff;
   letter-spacing: 1px;
   background-color: rgba(0,0,0,0.1);
-  padding: 3em 3em 1.5em 3em;
+  padding: 3em 3em 2em 3em;
   box-sizing: border-box;
   display: none;
 }
 
 .quote {
   position: absolute;
-  left: -4.5vw;
-  top: 8.4vh;
+  left: -0.5vw;
+  top: 7.8vh;
   font-size: 400px;
   font-family: 'Raleway Regular', sans-serif;
+  text-shadow: -4px 4px rgba(0,0,0,0.2);
 }
 
 .highlight {
-  font-size: 60px;
+  font-size: 72px;
   letter-spacing: 0.5px;
 }
 
@@ -178,14 +180,15 @@ body {
 .button {
   background-color: transparent;
   width: 3vw;
-  border: 3px solid rgba(255,255,255,0.6);
+  border: 3px solid rgba(255,255,255,0.8);
   font-size: 24px;
   padding: 0.1em 0.4em 0.2em 0.4em;
-  margin-top: 2.5em;
+  margin-top: 2em;
   text-align: center;
+  transition: all 0.5s;
 }
 
-.button img {
+.button svg {
   height: 20px;
 }
 

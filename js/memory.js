@@ -124,8 +124,10 @@ function check_open_windows() {
 
 function check_game_progress() {
     if($('.window:not(.window--locked):not(.matched)').length == 0) {
-        announce_level_up(game_level+1);
-        update_score_level();
+        setTimeout(function(){
+          announce_level_up(game_level+1);
+          update_score_level();
+        }, 750);
     }
 }
 
@@ -134,8 +136,69 @@ function match_cards($window1, $window2) {
        $window2.find('.card.visible').attr('class')) {
         $window1.removeClass('clicked').addClass('matched');
         $window2.removeClass('clicked').addClass('matched');
+        add_points($window1);
+        add_points($window2);
         update_match_score();
     }
+}
+
+function add_points($window) {
+  var point_class = $window.attr('id');
+  position = $window.find('.card.visible').offset();
+  positionleft = get_left_offset(point_class, position.left);
+  positiontop = position.top;
+  console.log("left: "+positionleft+" top: "+positiontop);
+  
+  $('.'+point_class).offset({left: positionleft, top: positiontop});
+  $('.'+point_class).addClass('trigger');
+  console.log("point class adds trigger: "+point_class);
+  setTimeout(function(){
+    $('.'+point_class).removeClass('trigger');
+    console.log("point class removes trigger: "+point_class);
+  },3000);
+}
+
+function get_left_offset(window, left) {
+  switch (window) {
+    case "w1":
+      return left + (8 * left)/100;
+      break;
+    case "w2":
+      return left + (5 * left)/100;
+      break;
+    case "w3":
+      return left + (4 * left)/100;
+      break;
+    case "w4":
+      return left + (3 * left)/100;
+      break;
+    case "w5":
+      return left + (2.5 * left)/100;
+      break;
+    case "w6":
+      return left + (2 * left)/100;
+      break;
+    case "w7":
+      return left + (8 * left)/100;
+      break;
+    case "w8":
+      return left + (5 * left)/100;
+      break;
+    case "w9":
+      return left + (4 * left)/100;
+      break;
+    case "w10":
+      return left + (3 * left)/100;
+      break;
+    case "w11":
+      return left + (2.5 * left)/100;
+      break;
+    case "w12":
+      return left + (2 * left)/100;
+      break;
+    default:
+      console.log("Levels exhausted. Sorry!");
+  }
 }
 
 function check_matching_cards() {

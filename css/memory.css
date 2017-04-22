@@ -18,13 +18,18 @@ svg {
 .instruction-overlay svg {
     width: 60vw;
     height: 60vh;
-    margin: 0 auto;
-    padding-top: 10vh;
+    margin: 0 21vw 0 19vw;
+    padding-top: 15vh;
 }
 
 .in-game-instruction svg {
     width: 400px;
     height: 400px;
+}
+
+.toolbar__score {
+    width: 5%;
+    height: 40px;
 }
 
 /*.announce {
@@ -53,6 +58,7 @@ svg {
 }
 
 .window {
+    position: relative;
     overflow: hidden;
     cursor: pointer;
 }
@@ -73,6 +79,38 @@ svg {
 .window__shutter--left,
 .window__shutter--right {
     transition: all 0.25s ease-in-out;
+}
+
+.points-text {
+    color: #fff;
+    font-size: 36px;
+    font-family: 'Raleway SemiBold';
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.points-text.trigger {
+    animation: 1s move-points linear;
+}
+
+@keyframes move-points {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
 }
 
 /* ==========================================================================

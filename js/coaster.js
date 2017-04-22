@@ -2,15 +2,17 @@ var fired = false;
 var idle = true;
 var open_window_timeout = 0;
 var start_key_timeout = 0;
-var game_level_timer = 45;
+var game_level_timer = 30;
 var timer_id;
 var interval_flag;
-var game_score = 0;
-var level_score = 0;
+var score = 0;
+var game_level_score = 0;
 var traintween = {stop: function(){return true;}};
 var started_keys = [];
 var keys_in_zone = [];
 var key_height = 0;
+var coaster_speed = 'medium';
+var key_hit_rate = 0;
 var key_offsets = {
   left: {top: 0, bottom: 0},
   right: {top: 0, bottom: 0},
@@ -22,34 +24,77 @@ var key_offsets = {
 $(document).ready(function(){
    $("#play").on('click', function(){
      start_game();
+     display_instruction();
    });
 
-  setInterval(check_key_progress, 50);   
-    $('html').keydown(function(e){
-        if(!fired) {
-            if (e.which == 37) {
-                fired = true;
-                check_key("left");
-            }
-            else if (e.which == 38) {
-                fired = true;
-                check_key("up");
-            }
-            else if (e.which == 39) {
-                fired = true;
-                check_key("right");
-            }
-            else if (e.which == 40) {
-                fired = true;
-                check_key("down");
-            }
-        }
-    });
 
-    $('html').keyup(function(e) {
-        fired = false;
-    });
+  setInterval(check_key_progress, 50);   
+  $('html').keydown(function(e){
+      if(!fired) {
+          if (e.which == 37) {
+              idle = false;
+              idleSecondsCounter = 0;
+              fired = true;
+              check_key("left");
+          }
+          else if (e.which == 38) {
+              idle = false;
+              idleSecondsCounter = 0;
+              fired = true;
+              check_key("up");
+          }
+          else if (e.which == 39) {
+              idle = false;
+              idleSecondsCounter = 0;
+              fired = true;
+              check_key("right");
+          }
+          else if (e.which == 40) {
+              idle = false;
+              idleSecondsCounter = 0;
+              fired = true;
+              check_key("down");
+          }
+      }
+  });
+
+  $('html').keyup(function(e) {
+      fired = false;
+  });
 });
+
+/* ==========================================================================
+   Initialize Game Level
+   ========================================================================== */
+
+function setup_level(level) {
+  switch (level) {
+    case 1:
+      game_level_score = level1.score;
+      set_game_level_score(game_level_score);
+      $('.keyboard').show();
+      store_key_offsets();
+      start_level(level1.keys());
+      start_coaster();
+      break;
+    case 2:
+      game_level_score = level2.score;
+      set_game_level_score(game_level_score);
+      store_key_offsets();
+      start_level(level2.keys());
+      start_coaster();
+      break;
+    case 3:
+      game_level_score = level3.score;
+      set_game_level_score(game_level_score);
+      store_key_offsets();
+      start_level(level3.keys());
+      start_coaster();
+      break;
+    default:
+      console.log("Levels exhausted. Sorry!");
+  }
+}
 
 /* ==========================================================================
    Pre-Game Helper functions
@@ -91,6 +136,30 @@ var key_right = {
         }
 };
 
+var level1 = {
+  count: 15,
+  score: 1000,
+  keys: function() {
+             return get_keys(this.count);
+           }
+};
+
+var level2 = { 
+  count: 25,
+  score: 2800,
+  keys: function() {
+            return get_keys(this.count);
+         }
+}
+
+var level3 = {
+  count: 35,
+  score: 5000,
+  keys: function() {
+           return get_keys(this.count);
+         }
+}
+
 /* ==========================================================================
    Reset functions
    ========================================================================== */
@@ -100,6 +169,8 @@ function start_game() {
     show_toolbar();
     clean_slate();
     initialize_game(1);
+    score = 0;
+    insert_score_html(score);
 }
 
 function hide_overlays() {
@@ -108,73 +179,33 @@ function hide_overlays() {
 }
 
 function clean_slate() {
-  $('.key').remove();
-  game_score = 0;
+  clear_keys();
+  game_level_score = 0;
   forward = 0;
   clearTimeout(start_key_timeout);
   if(traintween) {
     traintween.stop();
   }
   clearInterval(interval_flag);
+  clearInterval(timer_id);
   started_keys = [];
+  keys_in_zone = [];
   stop_coaster();
+  key_hit_rate = 0;
+  coaster_speed = 'medium';
   $('.arrow-guide').removeClass('glow');
   $('#coaster').removeClass('coaster-slow');
   $('#coaster').removeClass('coaster-medium');
   $('#coaster').removeClass('coaster-fast');
+  document.getElementById("coaster").style.animationDelay = "0s";
 }
 
-function setup_level(level) {
-  switch (level) {
-    case 1:
-      level_score = level1.score;
-      $('.keyboard').show();
-      store_key_offsets();
-      start_level(level1.keys());
-      start_coaster();
-      break;
-    case 2:
-      level_score = level2.score;
-      start_level(level2.keys());
-      start_coaster();
-      break;
-    case 3:
-      level_score = level3.score;
-      start_level(level3.keys());
-      start_coaster();
-      break;
-    default:
-      console.log("Levels exhausted. Sorry!");
-  }
-}
-
-var level1 = {
-  count: 22,
-  score: 1100,
-  keys: function() {
-             return get_keys(this.count);
-           }
-};
-
-var level2 = { 
-  count: 30,
-  score: 1800,
-  keys: function() {
-            return get_keys(this.count);
-         }
-}
-
-var level3 = {
-  count: 40,
-  score: 3000,
-  keys: function() {
-           return get_keys(this.count);
-         }
+function clear_keys() {
+  $('.key').remove();
 }
 
 function get_keys(count) {
     var level_keys = [];
-    console.log("key count: "+count);
     for(i=0; i< count; i++) {
       level_keys.push(Object.create(key_up));
       level_keys.push(Object.create(key_down));
@@ -185,9 +216,10 @@ function get_keys(count) {
 };
 
 function start_level(keys) {
-  Main();
+  //Main();
   var key_set = shuffle(keys);
   var interval = game_level_timer / key_set.length;
+  var keys_processed = -3;
   interval_flag = setInterval(function(){
     if(key_set.length == 0) {
       clearInterval(interval_flag);
@@ -198,8 +230,28 @@ function start_level(keys) {
       item.html().insertAfter('.first-key');
       
       started_keys.push(item);
+      keys_processed = keys_processed + 1;
+      if(keys_processed == 5) {
+        set_key_hits();
+        keys_processed = 0;
+      }
     }
   }, interval * 1000);
+}
+
+function set_key_hits() {
+  // console.log("hit rate: "+key_hit_rate);
+  // if(key_hit_rate < 3) {
+  //   coaster_speed = 'slow';
+  // }
+  // else if(key_hit_rate < 5) {
+  //   coaster_speed = 'medium';
+  // }
+  // else if(key_hit_rate == 5) {
+  //   coaster_speed = 'fast';
+  // }
+
+  key_hit_rate = 0;
 }
 
 function show_results() {
@@ -207,7 +259,7 @@ function show_results() {
   clearTimeout(open_window_timeout);
   idle=false;
   remove_toolbar_exit();
-  $('.result-overlay').find('.final_points').text($('.toolbar__score').find('.toolbar__value').text());
+  $('.result-overlay').find('.final_points').text($('.toolbar__score__value').text());
   $('.result-overlay').show();
 }
 
@@ -230,12 +282,15 @@ function check_key(direction) {
 }
 
 function update_score() {
-    game_score = game_score + 100;
-    update_score_html(100);
-    if(game_score >= level_score) {
+    score = score + 100;
+    insert_score_html(score.toString());
+    if(score >= game_level_score) {
+      setTimeout(function(){
+        clear_keys();
+      }, 500);
       setTimeout(function(){
         announce_level_up(game_level + 1);
-      }, 1000);
+      }, 750);
       //initialize_game(game_level + 1);
     }   
 }
@@ -330,6 +385,7 @@ function remove_vicinity_glow(direction) {
 
 function success_key(item) {
   $('.'+item.class).addClass('success');
+  key_hit_rate = key_hit_rate + 1;
 }
 
 function failure_key(item) {
@@ -341,23 +397,24 @@ function failure_key(item) {
    ========================================================================== */
 
    function start_coaster() {
+      console.log("starting the coaster");
       Main();
       setTimeout(function(){
         $('#coaster').addClass('coaster-medium');
-      }, 3000);
+        // setTimeout(function(){
+        //   $('#coaster').addClass('coaster-slow').removeClass('coaster-fast');
+        //   document.getElementById("coaster").style.animationDelay = "-15.7s";
+        // }, 10000)
+      }, 4000);
    }
 
    function stop_coaster() {
+    console.log("stopping the coaster");
       traintween.stop();
    }
-
-   var flag = false;
-   var forward = 0;
-   var counter = 0;
-   setTimeout(function() {
-      flag = true;
-   }, 15000);
+   
     function Main() {
+        console.log("Initializing the coaster");
         vars();
         launchTrains();
         animate();
@@ -385,24 +442,58 @@ function failure_key(item) {
       var it;
       it = this;
       var timePrev = Date.now();
-      var speed = 65000;
+      var timeJustPrev = Date.now();
+      var speed = 50000;
       totallength = this.train1.path.getTotalLength();
-      duration = totallength * 100 / 28.6 ;
-      console.log(duration);
+      local_speed = 'medium';
+      distance_covered = 0;
+      //duration = totallength * 100 / 28.6 ;
+      //console.log(duration);
       traintween = new TWEEN.Tween({
         length: totallength
       }).to({
         length: 0
       /*}, 8000).onUpdate(function() {*/
-      }, duration).onUpdate(function() {
-          // if(flag){
-          //   flag = false;
-          //   traintween.stop();
-          //   var timeNow = Date.now();
-          //   var timeDiff = timeNow - timePrev;
-          //   traintween.to({length: 0}, 10000);
-          //   traintween.start();
-          // }
+      }, speed).onUpdate(function() {
+          if(local_speed != coaster_speed){
+            console.log("The coaster changed speed");
+            traintween.stop();
+            var timeNow = Date.now();
+            var timeDiff = timeNow - timePrev;
+            var currenttimeDiff = timeNow - timeJustPrev;
+            currentDistance = get_current_distance(currenttimeDiff, local_speed);
+            distance_covered = distance_covered + currentDistance;
+
+            //console.log("speed change timediff: "+timeDiff);
+            //console.log("distance covered: "+distance_covered);
+
+            
+            if(coaster_speed == 'slow') {
+               traintween.to({length: 0}, 60000);
+               $('#coaster').removeClass('coaster-medium').removeClass('coaster-fast').addClass('coaster-slow');
+               delay = 60000 * distance_covered/1000 - 3;
+               console.log("delay: "+delay);
+               document.getElementById("coaster").style.animationDelay = "-"+delay+"s";
+            }
+            else if(coaster_speed == 'medium') {
+               traintween.to({length: 0}, 45000);
+               $('#coaster').removeClass('coaster-slow').removeClass('coaster-fast').addClass('coaster-medium');
+               delay = 45000 * distance_covered/1000;
+               console.log("delay: "+delay);
+               document.getElementById("coaster").style.animationDelay = "-"+delay+"s";
+            }
+            else if(coaster_speed == 'fast') {
+               traintween.to({length: 0}, 30000);
+               $('#coaster').removeClass('coaster-slow').removeClass('coaster-medium').addClass('coaster-fast');
+               delay = 30000 * distance_covered/1000 - 3;
+               console.log("delay: "+delay);
+               document.getElementById("coaster").style.animationDelay = "-"+delay+"s";
+            }
+
+            timeJustPrev = timeNow;
+            local_speed = coaster_speed;
+            traintween.start();
+          }
           var angle, attr, cabin, cabinChild, i, point, prevPoint, shift, x, x1, x2, y, _i, _len, _ref, _results;
           _ref = it.train1.cabins;
           _results = [];
@@ -419,14 +510,12 @@ function failure_key(item) {
               x = point.x - 35;
               y = point.y - 35;
               if (point.x - prevPoint.x > 0) {
-                //forward += -0.1;
                 if (!cabin.isRotated) {
                   cabinChild = cabin[it.childMethod][it.childNode];
                   cabinChild.setAttribute('xlink:href', '#coasterreverse');
                   cabin.isRotated = true;
                 }
               } else {
-                //forward += -0.37;
                 if (cabin.isRotated) {
                   cabinChild = cabin[it.childMethod][it.childNode];
                   cabinChild.setAttribute('xlink:href', '#coasterforward');
@@ -439,11 +528,6 @@ function failure_key(item) {
               _results.push(cabin.setAttribute('transform', attr));
           }
           
-          //attr = "translate(" + forward + "px, 0)";
-          //_results.push(it.train1.background.setAttribute('style', 'transform: '+attr));
-          
-          
-
           return _results;
       /*}).start();*/
       }).start();
@@ -465,3 +549,15 @@ function failure_key(item) {
       bindArgs = Array.prototype.slice.call(arguments, 2);
       return wrapper;
     };
+
+function get_current_distance(time, speed) {
+  if(speed == 'slow'){
+    return time / 60000;
+  }
+  else if(speed == 'medium') {
+    return time / 45000;
+  }
+  else if(speed == 'fast') {
+    return time/30000;
+  }
+}

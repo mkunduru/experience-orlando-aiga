@@ -38,14 +38,17 @@ function setup_level(level) {
   switch (level) {
     case 1:
         game_level_score = level1.score;
+        set_game_level_score(game_level_score);
         drop_gifts(level1.items());
         break;
     case 2:
         game_level_score = level2.score;
+        set_game_level_score(game_level_score);
         drop_gifts(level2.items());
         break;
     case 3:
         game_level_score = level3.score;
+        set_game_level_score(game_level_score);
         drop_gifts(level3.items());
         break;
     default:
@@ -62,6 +65,7 @@ var lollipop = {
   name: "lollipop",
   category: "good",
   points: 100,
+  speed: 7,
   options: ["orange", "pink", "purple", "green"],
   image: function() {
             var color = this.options[Math.floor(Math.random() * this.options.length)];
@@ -76,6 +80,7 @@ var candy = {
   name: "candy",
   category: "good",
   points: 100,
+  speed: 5,
   options: ["orange", "pink", "purple", "green"],
   image: function() {
             var color = this.options[Math.floor(Math.random() * this.options.length)];
@@ -90,6 +95,7 @@ var hourglass = {
   name: "hourglass",
   category: "good",
   points: "0:05",
+  speed: 7,
   html: function(){
           return $("<div class='hourglass gift' category='"+this.category+"' points='"+this.points+"' time='"+this.time+"'><img src='img/games/balloon/items/time.svg'></div");
         } 
@@ -99,6 +105,7 @@ var rock = {
   name: "rock",
   category: "bad",
   points: -100,
+  speed: 3,
   html: function(){
           return $("<div class='rock gift' category='"+this.category+"' points='"+this.points+"'><img src='img/games/balloon/items/rock.svg'></div");
         } 
@@ -108,6 +115,7 @@ var bomb = {
   name: "bomb",
   category: "bad",
   points: -200,
+  speed: 5,
   html: function(){
           return $("<div class='bomb gift' category='"+this.category+"' points='"+this.points+"'><img src='img/games/balloon/items/bomb.svg'></div");
         } 
@@ -118,6 +126,7 @@ var bird = {
   category: "bad",
   points: -100,
   options: ["bird--low", "bird--high", "bird--out"],
+  speed: 12,
   path: function() {
           return this.options[Math.floor(Math.random() * this.options.length)];
         },
@@ -128,23 +137,23 @@ var bird = {
 
 
 var level1 = {
-  score: 1000,
+  score: 1200,
   items: function() {
-             return get_level_items(10,10,4,4,4,4);
+             return shuffle(get_level_items(12,12,4,8,8,5));
            }
 };
 
 var level2 = { 
-  score: 2500,
+  score: 2900,
   items: function() {
-            return get_level_items(13,14,4,6,6,6);
+            return shuffle(get_level_items(14,15,4,9,11,5));
          }
 }
 
 var level3 = {
   score: 5000,
   items: function() {
-            return get_level_items(18,18,6,8,8,4);
+            return shuffle(get_level_items(18,18,4,11,11,6));
          }
 }
 
@@ -166,18 +175,22 @@ function moveBalloon() {
         if (!keys.hasOwnProperty(direction)) continue;
         if (direction == 37 && $("#balloon").offset().left > 25) {
               idle = false;
+              idleSecondsCounter = 0;
               $("#balloon").animate({left: "-=5"}, {duration: 0, queue: false});               
         }
         if (direction == 38 && $("#balloon").offset().top > 25) {
             idle = false;
+            idleSecondsCounter = 0;
             $("#balloon").animate({top: "-=5"}, {duration: 0, queue: false});  
         }
         if (direction == 39 && $("#balloon").offset().left < ($(window).width()-125)) {
             idle = false;
+            idleSecondsCounter = 0;
             $("#balloon").animate({left: "+=5"}, {duration: 0, queue: false});  
         }
         if (direction == 40 && $("#balloon").offset().top < ($(window).height()-200)) {
             idle = false;
+            idleSecondsCounter = 0;
             $("#balloon").animate({top: "+=5"}, {duration: 0, queue: false});  
         }
     }
@@ -193,9 +206,12 @@ function bind_game_functions() {
   });
 }
 
-function drop_gifts(gifts) {
+function drop_gifts(gift_list) {
+  var gifts = shuffle(gift_list);
+  var interval = 47000 / gifts.length;
   for(i=0; i<gifts.length; i++) {
-    var rand = Math.round(Math.random() * (50000 - 1000)) + 1000;
+    /*var rand = Math.round(Math.random() * (50000 - 1000));*/
+    var rand = Math.random() * interval + interval * (i-1);
     gift = gifts[i];
     create_gift(gift, rand);
   }
@@ -212,13 +228,13 @@ function new_gift(gift) {
       $element = gift.html().insertBefore("#balloon");
     }
     else {
-      var left_offset = 300 + Math.floor(Math.random() * 900);
+      var left_offset = 300 + Math.floor(Math.random() * 1300);
       var topValue = $(window).height();
-      var random_duration = 4000 + Math.floor(Math.random() * 9000);
+      var random_duration = gift.speed * 1000;
       gift.html().insertBefore("#balloon")
                 .offset({left: left_offset, top: -50})
                 .animate({top: topValue},
-                         {duration: random_duration, queue: false, complete: clearGift});
+                         {duration: random_duration, easing: "linear", queue: false, complete: clearGift});
     }
 }
 
@@ -230,7 +246,7 @@ function show_results() {
   clearInterval(timer_id);
   idle=false;
   remove_toolbar_exit();
-  $('.result-overlay').find('.final_points').text($('.toolbar__score').find('.toolbar__value').text());
+  $('.result-overlay').find('.final_points').text($('.toolbar__score__value').text());
   $('.result-overlay').show();
 }
 
@@ -271,7 +287,11 @@ function checkCollision() {
             score = score + parseInt(gift.attr("points"));
             insert_score_html(score.toString());
             if(score >= game_level_score) {
-              announce_level_up(game_level + 1);
+              clear_gifts();
+              setTimeout(function(){
+                announce_level_up(game_level + 1);
+              }, 750);
+              
               //initialize_game(game_level + 1);
             }
           } 
@@ -306,6 +326,7 @@ function start_game() {
     clean_slate();
     initialize_game(1);
     score = 0;
+    insert_score_html(score);
 }
 
 function hide_overlays() {
@@ -321,6 +342,7 @@ function clean_slate() {
     clearInterval(timer_id);
     gift_timeouts = [];
     keys = {};
+    $("#balloon").removeClass('blink');
 }
 
 function clear_gifts() {

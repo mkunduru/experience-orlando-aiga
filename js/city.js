@@ -5,7 +5,16 @@ $(document).ready(function() {
     animate_downtown_lights();
     start_fireworks();
     show_play_icons();
+    buzz_icons_hover();
 });
+
+function buzz_icons_hover(){
+  $('.info-img').hover(function(){
+    $(this).removeClass('buzz').addClass('hover');
+  }, function(){
+    $(this).removeClass('hover').addClass('buzz');
+  });
+}
 
 function animate_downtown_lights() {
     $('#building3windows, #building1windows, #building2windows, #building4windows, #building5windows')
@@ -160,7 +169,7 @@ Roller Coaster
           for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
             cabin = _ref[i];
             shift = i * it.cabinWidth;
-            if ((this.length - shift) < 4) {
+            if ((this.length - shift) < 0.25) {
               //cabin.style.display = 'none';
               _results.push(cabin);
             }
@@ -170,8 +179,8 @@ Roller Coaster
               x1 = point.y - prevPoint.y;
               x2 = point.x - prevPoint.x;
               angle = Math.atan(x1 / x2) * (180 / Math.PI);
-              x = point.x - 25;
-              y = point.y - 25;
+              x = point.x - 40;
+              y = point.y - 40;
               if (point.x - prevPoint.x > 0) {
                 if (!cabin.isRotated) {
                   cabinChild = cabin[it.childMethod][it.childNode];
