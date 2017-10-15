@@ -139,21 +139,21 @@ var bird = {
 var level1 = {
   score: 1200,
   items: function() {
-             return shuffle(get_level_items(12,12,4,8,8,5));
+             return shuffle(get_level_items(18,18,4,11,11,6));
            }
 };
 
 var level2 = { 
   score: 2900,
   items: function() {
-            return shuffle(get_level_items(14,15,4,9,11,5));
+            return shuffle(get_level_items(20,20,4,13,16,6));
          }
 }
 
 var level3 = {
   score: 5000,
   items: function() {
-            return shuffle(get_level_items(18,18,4,11,11,6));
+            return shuffle(get_level_items(26,25,4,16,16,7));
          }
 }
 
@@ -208,7 +208,7 @@ function bind_game_functions() {
 
 function drop_gifts(gift_list) {
   var gifts = shuffle(gift_list);
-  var interval = 47000 / gifts.length;
+  var interval = 65000 / gifts.length;
   for(i=0; i<gifts.length; i++) {
     /*var rand = Math.round(Math.random() * (50000 - 1000));*/
     var rand = Math.random() * interval + interval * (i-1);
