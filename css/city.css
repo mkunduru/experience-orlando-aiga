@@ -411,3 +411,10 @@ h3 {
         transform: translateX(30vw);
     }
 }
+
+@media only screen and (max-width: 1280px) {
+    /* Style adjustments for viewports that meet the condition */
+    .play-icon {
+        font-size: 12px;
+    }
+}

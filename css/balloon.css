@@ -549,3 +549,10 @@ Animations
         fill: #999;
     }
 }
+
+@media only screen and (max-width: 1280px) {
+    /* Style adjustments for viewports that meet the condition */
+    .instruction-title {
+        margin: 0 3vw 0.6vw 12vw;
+    }
+}

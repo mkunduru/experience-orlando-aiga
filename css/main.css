@@ -341,10 +341,12 @@ h1.result {
 }
 
 .winner {
+    width: 250px;
     display: none;
 }
 
 .loser {
+    width: 250px;
     display: none;
 }
 
@@ -588,6 +590,68 @@ h1.result {
 
 @media only screen and (max-width: 1280px) {
     /* Style adjustments for viewports that meet the condition */
+    .timeout-overlay__text {
+        width: 28vw;
+    }
+
+    .timeout-overlay__cloud img {
+        width: 34vw;
+    }
+
+    .toolbar__title {
+        font-size: 11px;
+    }
+
+    .toolbar__value {
+        font-size: 16px;
+    }
+
+    .toolbar__score {
+        width: 10%;
+    }
+
+    h1.result {
+        font-size: 64px;
+    }
+
+    .result-overlay .button {
+        margin: 0 auto 2% auto;
+        padding: 0.65em 1.4em 0.8em 1.4em;
+        width: 100px;
+        cursor: pointer;
+        font-size: 16px;
+        box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
+        transition: all 0.5s;
+    }
+
+    .result-overlay .button:hover {
+        box-shadow: -4px 5px 0 rgba(0,0,0,0.1);
+    }
+
+    .result {
+        margin-bottom: 1vh;
+        font-size: 24px;
+    }
+
+    .final-score {
+        font-size: 24px;
+        margin: 1vh auto 5vh auto;
+        letter-spacing: 1px;
+    }
+
+    .winner {
+        width: 125px;
+        display: none;
+    }
+
+    .loser {
+        width: 125px;
+        display: none;
+    }
+
+    .buttons {
+        margin-top: 3%;
+    }
 }
 
 @media print,
