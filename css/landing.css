@@ -258,7 +258,7 @@ a {
 
 @media only screen and (max-width: 1280px) {
     h1 {
-        font: 400 72px/72px 'Chicle', cursive;
+        font: 400 84px/84px 'Chicle', cursive;
         padding-top: 4%;
     }
 
@@ -271,8 +271,13 @@ a {
     }
 
     .desc {
+        width: 50vw;
         font-size: 18px;
         margin: 2em auto 0 auto;
+    }
+
+    .subtitle {
+        font-size: 14px;
     }
 
     .button {

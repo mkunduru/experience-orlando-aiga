@@ -194,8 +194,8 @@ body {
 @media only screen and (max-width: 1280px) {
 
     .quote {
-      left: -0.5vw;
-      top: 7.8vh;
+      left: 0;
+      top: 6vh;
       font-size: 200px;
     }
 

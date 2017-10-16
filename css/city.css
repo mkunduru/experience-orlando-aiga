@@ -417,4 +417,11 @@ h3 {
     .play-icon {
         font-size: 12px;
     }
+
+    .play-button {
+        font-size: 14px;
+        padding: 0.3em 1em 0.45em 1em;
+        box-shadow: -3px 4px 0 rgba(0,0,0,0.15);
+        transition: all 0.5s;
+    }
 }
