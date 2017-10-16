@@ -598,6 +598,10 @@ h1.result {
         width: 34vw;
     }
 
+    .toolbar {
+        height: 60px;
+    }
+
     .toolbar__title {
         font-size: 11px;
     }
@@ -611,7 +615,7 @@ h1.result {
     }
 
     h1.result {
-        font-size: 64px;
+        font-size: 54px;
     }
 
     .result-overlay .button {
@@ -634,23 +638,30 @@ h1.result {
     }
 
     .final-score {
-        font-size: 24px;
-        margin: 1vh auto 5vh auto;
-        letter-spacing: 1px;
+        font-size: 21px;
     }
 
     .winner {
-        width: 125px;
+        width: 150px;
         display: none;
     }
 
     .loser {
-        width: 125px;
+        width: 150px;
         display: none;
     }
 
     .buttons {
         margin-top: 3%;
+    }
+
+    .page-title {
+        font: 400 72px/72px 'Chicle', cursive;
+    }
+
+    .instruction-overlay .button {
+        font-size: 24px;
+        width: 130px;
     }
 }
 
