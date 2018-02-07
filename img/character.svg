@@ -6,7 +6,7 @@
 	 	#left-eye,
 	 	#right-eye {
 	 		animation: 2.4s blink linear forwards infinite; 
-	 		transform-origin: center;
+	 		transform-origin: 35% 35% 0;
 	 	}
 
 	 	@keyframes blink {
