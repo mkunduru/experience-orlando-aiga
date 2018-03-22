@@ -1,27 +1,16 @@
-// var content = [{
-//     title: "I was born and raised in Hyderabad, India. I started my journey to Orlando on a 26-hour flight, 3 years ago. I was looking to fulfill my long awaited dream of having a career in design. So, I joined Valencia College to add formal education to my passion. My journey has culminated in this showcase of my skills as a designer and developer.",
-//     desc: "I want to make the web more enjoyable. So, here is my attempt at bringing my early experiences in Orlando to life"
-//   }];
-
-// var currentPage = 0;
-
 $(document).ready(function() {
   setTimeout(function(){
     show_bio();
-  },6000);
-  //show_bio();
+  },4000);
 
   $('.button').on('click', function(){
-    //scrambleOthers();
-    //$('.letter').fadeOut(1000);
-    //$('#navigate').fadeOut(1000);
     hide_bio();
     $('#map2').addClass('start_landing');
     $('#flightpath2').addClass('start_landing');
     $('#flight1').addClass('start_landing');
     setTimeout(function(){
       window.location.href = "landing.html";
-    }, 7500);
+    }, 4800);
   });
 
   $('.button').hover(function(){
@@ -34,11 +23,11 @@ $(document).ready(function() {
 });
 
 function show_bio() {
-  $('#bio').fadeIn(2000, "linear");
+  $('#bio').fadeIn(1000, "linear");
 }
 
 function hide_bio() {
-  $('#bio').fadeOut(2000, "linear");
+  $('#bio').fadeOut(1000, "linear");
 }
 
 // function start_bio() {

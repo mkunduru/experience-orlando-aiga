@@ -61,6 +61,7 @@ svg {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    z-index: 40;
 }
 
 .window__shutter {

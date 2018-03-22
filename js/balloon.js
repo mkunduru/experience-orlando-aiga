@@ -11,7 +11,7 @@ $(document).ready(function(){
 
   $('#play').on('click', function() {
       start_game();
-      display_instruction();
+      display_instruction(6000);
       setInterval(moveBalloon, 20);
       setInterval(checkCollision, 30);
       bind_game_functions();
@@ -228,7 +228,10 @@ function new_gift(gift) {
       $element = gift.html().insertBefore("#balloon");
     }
     else {
-      var left_offset = 300 + Math.floor(Math.random() * 1300);
+      var width = $(window).width();
+      var left_margin = width/10;
+      var left_offset = left_margin + Math.floor(Math.random() * (width - 2*left_margin));
+      //var left_offset = 300 + Math.floor(Math.random() * 1300);
       var topValue = $(window).height();
       var random_duration = gift.speed * 1000;
       gift.html().insertBefore("#balloon")

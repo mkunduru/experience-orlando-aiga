@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 189.1 203.2" style="enable-background:new 0 0 189.1 203.2;" xml:space="preserve">
-<g>
+	 viewBox="0 0 189.1 203.2" style="enable-background:new 0 0 189.1 203.2;" xml:space="preserve"><g>
+	<style>
+	 	#left-eye,
+	 	#right-eye {
+	 		animation: 2.4s blink linear forwards infinite;
+	 		transform-origin: center;
+		 	transform-box: fill-box;
+	 	}
+
+	 	@keyframes blink {
+	 		90% {
+	 			transform: none;
+	 			animation-timing-function: ease-in;
+	 		}
+	 		93% {
+	 			transform: translateY(1px) scaleY(0);
+	 		}
+	 		100% {
+	 			animation-timing-function: ease-out;
+	 		}
+	 	}
+	 </style>
 	<g>
 		<g>
 			<defs>

@@ -555,4 +555,28 @@ Animations
     .instruction-title {
         margin: 0 3vw 0.6vw 12vw;
     }
+
+    #balloon {
+        height: 80px;
+        width: 80px;
+    }
+
+    .candy,
+    .rock,
+    .bomb{
+        width: 40px;
+    }
+
+    .bird {
+        width: 71px;
+    }
+
+    .hourglass {
+        width: 30px;
+    }
+
+    .lollipop {
+        width: 35px;
+    }
+
 }

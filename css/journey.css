@@ -57,27 +57,6 @@ body {
     animation: move-cloud linear infinite;
 }
 
-/*.cloud1 {
-    top: 12%;
-    width: 130px;
-    animation-duration: 30s;
-    animation-delay: -5s;
-}
-
-.cloud2 {
-    top: 6%;
-    width: 100px;
-    animation-duration: 30s;
-    animation-delay: -26s;
-}
-
-.cloud3 {
-    top: 25%;
-    width: 80px;
-    animation-duration: 30s;
-    animation-delay: 2s;
-}*/
-
 .cloud4 {
     top: 21%;
     width: 130px;
@@ -182,7 +161,7 @@ body {
   border: 3px solid rgba(255,255,255,0.8);
   font-size: 24px;
   padding: 0.1em 0.4em 0.2em 0.4em;
-  margin-top: 2em;
+  margin-top: 2vh;
   text-align: center;
   transition: all 0.5s;
 }
@@ -204,11 +183,11 @@ body {
       letter-spacing: 0.5px;
     }
 
-
     #bio {
       font-size: 18px;
       line-height: 32px;
       left: 14vw;
+      padding-bottom: 1em;
     }
 
     .bio-desc {

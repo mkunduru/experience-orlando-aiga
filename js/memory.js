@@ -8,7 +8,7 @@ var timer_id;
 $(document).ready(function(){
     $('#play').on('click', function() {
         start_game();
-        display_instruction();
+        display_instruction(8000);
     });
 
     $('.window').on('click', function() {

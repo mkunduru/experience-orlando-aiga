@@ -24,7 +24,7 @@ var key_offsets = {
 $(document).ready(function(){
    $("#play").on('click', function(){
      start_game();
-     display_instruction();
+     display_instruction(10000);
    });
 
 
@@ -397,7 +397,6 @@ function failure_key(item) {
    ========================================================================== */
 
    function start_coaster() {
-      console.log("starting the coaster");
       Main();
       setTimeout(function(){
         $('#coaster').addClass('coaster-medium');
@@ -409,7 +408,6 @@ function failure_key(item) {
    }
 
    function stop_coaster() {
-    console.log("stopping the coaster");
       traintween.stop();
    }
    

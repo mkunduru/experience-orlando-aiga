@@ -6,6 +6,10 @@ body {
     position: relative;
 }
 
+#logo {
+    cursor: pointer;
+}
+
 /*.play-icon {
     position: absolute;
     display:none;
@@ -221,35 +225,37 @@ h3 {
 
 .firework-1 {
     width: 5vw;
+    top: -6vh;
+    left: -2vw;
 }
 
 .firework-2 {
     width: 6vw;
-    top: -15vh;
-    left: 2vw;
+    top: -20vh;
+    left: 5vw;
 }
 
 .firework-3 {
     width: 5vw;
-    top: -15vh;
-    left: 3vh;
+    top: -35vh;
+    left: -2vw;
 }
 
 .firework-4 {
     width: 7vw;
-    top: -32vh;
-    left: 2vh;
+    top: -35vh;
+    left: 3vw;
 }
 
 .firework-5 {
     width: 6vw;
-    top: -50vh;
-    left: -3vw;
+    top: -55vh;
+    left: -7vw;
 }
 
 .firework-6 {
     width: 7vw;
-    top: -50vh;
+    top: -70vh;
 }
 
 .firework-1 {
@@ -313,11 +319,11 @@ h3 {
     }
     70% {
         opacity: 1;
-        transform: translate(100vw, 10vh);
+        transform: translate(120vw, 10vh);
     }
     100% {
         opacity: 1;
-        transform: translate(100vw, 10vh);
+        transform: translate(120vw, 10vh);
     }
 }
 
@@ -327,10 +333,10 @@ h3 {
 
 @keyframes move-cloud-1 {
     0% {
-        transform: translateX(-30vw);
+        transform: translateX(70vw);
     }
     100% {
-        transform: translateX(70vw);
+        transform: translateX(-30vw);
     }
 }
 
@@ -340,10 +346,10 @@ h3 {
 
 @keyframes move-cloud-2 {
     0% {
-        transform: translateX(-40vw);
+        transform: translateX(50vw);
     }
     100% {
-        transform: translateX(60vw);
+        transform: translateX(-50vw);
     }
 }
 
@@ -353,10 +359,10 @@ h3 {
 
 @keyframes move-cloud-3 {
     0% {
-        transform: translateX(-20vw);
+        transform: translateX(80vw);
     }
     100% {
-        transform: translateX(80vw);
+        transform: translateX(-20vw);
     }
 }
 
@@ -366,10 +372,10 @@ h3 {
 
 @keyframes move-cloud-4 {
     0% {
-        transform: translateX(-80vw);
+        transform: translateX(20vw);
     }
     100% {
-        transform: translateX(20vw);
+        transform: translateX(-80vw);
     }
 }
 
@@ -379,23 +385,23 @@ h3 {
 
 @keyframes move-cloud-5 {
     0% {
-        transform: translateX(-10vw);
+        transform: translateX(90vw);
     }
     100% {
-        transform: translateX(90vw);
+        transform: translateX(-10vw);
     }
 }
 
 #c6 {
-  animation: move-cloud-6 60s linear forwards -30s infinite;  
+  animation: move-cloud-6 60s linear forwards -40s infinite;
 }
 
 @keyframes move-cloud-6 {
     0% {
-        transform: translateX(-50vw);
+        transform: translateX(50vw);
     }
     100% {
-        transform: translateX(50vw);
+        transform: translateX(-50vw);
     }
 }
 
@@ -405,10 +411,10 @@ h3 {
 
 @keyframes move-cloud-7 {
     0% {
-        transform: translateX(-70vw);
+        transform: translateX(30vw);
     }
     100% {
-        transform: translateX(30vw);
+        transform: translateX(-70vw);
     }
 }
 
@@ -423,5 +429,72 @@ h3 {
         padding: 0.3em 1em 0.45em 1em;
         box-shadow: -3px 4px 0 rgba(0,0,0,0.15);
         transition: all 0.5s;
+    }
+
+    .landmark-info {
+        font-size: 14px;
+    }
+
+    @keyframes move-cloud-1 {
+        0% {
+            transform: translateX(90vw);
+        }
+        100% {
+            transform: translateX(-50vw);
+        }
+    }
+
+    @keyframes move-cloud-2 {
+        0% {
+            transform: translateX(70vw);
+        }
+        100% {
+            transform: translateX(-70vw);
+        }
+    }
+
+    @keyframes move-cloud-3 {
+        0% {
+            transform: translateX(110vw);
+        }
+        100% {
+            transform: translateX(-30vw);
+        }
+    }
+
+    @keyframes move-cloud-4 {
+        0% {
+            transform: translateX(30vw);
+        }
+        100% {
+            transform: translateX(-110vw);
+        }
+    }
+
+    @keyframes move-cloud-5 {
+        0% {
+            transform: translateX(120vw);
+        }
+        100% {
+            transform: translateX(-20vw);
+        }
+    }
+
+    @keyframes move-cloud-6 {
+        0% {
+            transform: translateX(70vw);
+        }
+        100% {
+            transform: translateX(-70vw);
+        }
+    }
+
+    @keyframes move-cloud-7 {
+        0% {
+            transform: translateX(50vw);
+        }
+        100% {
+            transform: translateX(-90vw);
+        }
     }
 }

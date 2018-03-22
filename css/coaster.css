@@ -491,3 +491,38 @@ svg {
         fill: #999;
     }
 }
+
+@media only screen and (max-width: 1280px) {
+    @keyframes move-coaster-medium {
+        0% {
+            transform: translateX(0);
+        }
+        10% {
+            transform: translateX(-500px);
+        }
+        20% {
+            transform: translateX(-1000px);
+        }
+        30% {
+            transform: translateX(-1700px);
+        }
+        40% {
+            transform: translateX(-2100px);
+        }
+        50% {
+            transform: translateX(-2800px);
+        }
+        60% {
+            transform: translateX(-3500px);
+        }
+        70% {
+            transform: translateX(-4000px);
+        }
+        80% {
+            transform: translateX(-4500px);
+        }
+        100% {
+            transform: translateX(-6000px);
+        }
+    }
+}

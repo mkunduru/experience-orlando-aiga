@@ -6,6 +6,11 @@ $(document).ready(function() {
     start_fireworks();
     show_play_icons();
     buzz_icons_hover();
+
+    $('#logo').on('click', function(){
+       window.open('http://www.meenakunduru.com');
+       return false;
+    });
 });
 
 function buzz_icons_hover(){
@@ -47,8 +52,10 @@ function animate_city_lights() {
 
 function start_fireworks() {
     position = $('#disneycastle').offset();
-    positionleft = position.left + (50 * position.left)/100;
+    positionleft = position.left + (30 * position.left)/100;
     positiontop = position.top + (8 * position.top)/100;
+    //positionleft = position.left + (50 * position.left)/100;
+    //positiontop = position.top + (8 * position.top)/100;
     $('.fireworks').offset({left: positionleft, top: positiontop}).show();
 }
 
@@ -58,8 +65,9 @@ function show_play_icons() {
     positiontop = position.top - (14 * position.top)/100;
     $('#stadiuminfo').offset({left: positionleft, top: positiontop}).show();
 
-    positionleft = position.left + (4 * position.left)/100;
-    positiontop = position.top - (40 * position.top)/100;
+    height = $('#stadiuminfo').find('.landmark-info').height();
+    positionleft = positionleft - (positionleft/5);
+    positiontop = positiontop - height;
     $('#stadiuminfo').find('.landmark-info').offset({left: positionleft, top: positiontop});
 
 
@@ -68,8 +76,9 @@ function show_play_icons() {
     positiontop = position.top - (7 * position.top)/100;
     $('#downtowninfo').offset({left: positionleft, top: positiontop}).show();
 
-    positionleft = position.left - (9 * position.left)/100;
-    positiontop = position.top - (40 * position.top)/100;
+    height = $('#downtowninfo').find('.landmark-info').height();
+    positionleft = positionleft - (positionleft/10);
+    positiontop = positiontop - height;
     $('#downtowninfo').find('.landmark-info').offset({left: positionleft, top: positiontop});
 
 
@@ -79,8 +88,8 @@ function show_play_icons() {
     $('#balloonplay').offset({left: positionleft, top: positiontop}).show();
 
     position = $('#rollercoasterpath').offset();
-    positionleft = position.left - (20 * position.left)/100;
-    positiontop = position.top;
+    positionleft = position.left - (15 * position.left)/100;
+    positiontop = position.top - (4 * position.top)/100;
     $('#coasterplay').offset({left: positionleft, top: positiontop}).show();
 
     position = $('#disneycastle').offset();
@@ -93,8 +102,9 @@ function show_play_icons() {
     positiontop = position.top - (1 * position.top)/100;
     $('#orlandoeyeinfo').offset({left: positionleft, top: positiontop}).show();
 
-    positionleft = position.left - (5 * position.left)/100;
-    positiontop = position.top - (12 * position.top)/100;
+    height = $('#orlandoeyeinfo').find('.landmark-info').height();
+    positionleft = positionleft - (positionleft/20);
+    positiontop = positiontop - height;
     $('#orlandoeyeinfo').find('.landmark-info').offset({left: positionleft, top: positiontop});
 
     position = $('#kayak').offset();
@@ -102,8 +112,9 @@ function show_play_icons() {
     positiontop = position.top - (6 * position.top)/100;
     $('#kayakinfo').offset({left: positionleft, top: positiontop}).show();
 
-    positionleft = position.left + (7 * position.left)/100;
-    positiontop = position.top - (13 * position.top)/100;
+    height = $('#downtowninfo').find('.landmark-info').height();
+    positionleft = positionleft - (positionleft/10);
+    positiontop = positiontop - height;
     $('#kayakinfo').find('.landmark-info').offset({left: positionleft, top: positiontop});
 
     $('.info-img').on('click', function(e){
@@ -170,10 +181,11 @@ Roller Coaster
             cabin = _ref[i];
             shift = i * it.cabinWidth;
             if ((this.length - shift) < 0.25) {
-              //cabin.style.display = 'none';
+              cabin.style.display = 'none';
               _results.push(cabin);
             }
             else {
+              cabin.style.display = 'block';
               point = it.train1.path.getPointAtLength(this.length - shift);
               prevPoint = it.train1.path.getPointAtLength(this.length - shift - 1);
               x1 = point.y - prevPoint.y;

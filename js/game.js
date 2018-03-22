@@ -32,11 +32,11 @@ function check_inactivity() {
     }, 500);
 }
 
-function display_instruction() {
+function display_instruction(timeout) {
     idle = true;
     setTimeout(function(){
         check_inactivity()
-    }, 3000);
+    }, timeout);
 }
 
 function show_instruction() {
@@ -166,7 +166,7 @@ function game_winner() {
 }
 
 function game_over() {
-  update_result_message("Game Over.");
+  update_result_message("Game Over");
   show_loser();
   show_results();
   clean_slate();
