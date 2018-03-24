@@ -158,9 +158,10 @@ h3 {
 .landmark-info {
     position: absolute;
     background-color: #fff;
-    padding: 0.5em 1em;
+    padding: 0.5em 1.5em 0.5em 1em;
     color: #999999;
     width: 22vw;
+    max-width: 450px;
     top: 0;
     left: 0;
     box-shadow: -6px 7px 0 rgba(0,0,0,0.15);
@@ -216,7 +217,7 @@ h3 {
 }
 
 .firework {
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     width: 2vw;
@@ -497,4 +498,16 @@ h3 {
             transform: translateX(-90vw);
         }
     }
+}
+
+@media only screen and (min-width: 2300px) {
+    .landmark-info {
+        font-size: 20px;
+        max-width: 500px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
 }

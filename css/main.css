@@ -665,6 +665,59 @@ h1.result {
     }
 }
 
+@media only screen and (min-width: 2300px) {
+    .page-title {
+        font-size: 120px;
+        line-height: 120px;
+    }
+
+    h1.result {
+        font-size: 96px;
+    }
+
+    .result-overlay .button {
+        font-size: 32px;
+        width: 200px;
+    }
+
+    .instruction-overlay .button {
+        font-size: 36px;
+        width: 200px;
+    }
+
+    .loser {
+        width: 300px;
+    }
+
+    .winner {
+        width: 300px;
+    }
+
+    .toolbar {
+        height: 100px;
+    }
+
+    .toolbar__title {
+        font-size: 16px;
+    }
+
+    .toolbar__value {
+        font-size: 28px;
+    }
+
+    .toolbar > ul > li {
+        margin: 15px 0;
+    }
+
+    .toolbar__exit {
+        top: 25px;
+    }
+
+    .toolbar__exit img {
+        width: 50px;
+    }
+}
+
 @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 1.25dppx),

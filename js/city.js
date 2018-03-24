@@ -11,6 +11,13 @@ $(document).ready(function() {
        window.open('http://www.meenakunduru.com');
        return false;
     });
+
+    $(window).resize(function() {
+        show_play_icons();
+        buzz_icons_hover();
+        start_fireworks();
+
+    });
 });
 
 function buzz_icons_hover(){
@@ -51,54 +58,82 @@ function animate_city_lights() {
 }
 
 function start_fireworks() {
-    position = $('#disneycastle').offset();
-    positionleft = position.left + (30 * position.left)/100;
-    positiontop = position.top + (8 * position.top)/100;
-    //positionleft = position.left + (50 * position.left)/100;
-    //positiontop = position.top + (8 * position.top)/100;
-    $('.fireworks').offset({left: positionleft, top: positiontop}).show();
+//    position = $('#disneycastle').offset();
+//    console.log("left: "+position.left+" top: "+position.top);
+//    positionleft = position.left + (30 * position.left)/100;
+//    positiontop = position.top + (8 * position.top)/100;
+//    $('.fireworks').offset({left: positionleft, top: positiontop}).show();
+
+    position = $('#disneycastle')[0].getBoundingClientRect();
+    positionleft = position.left + (20 * position.left/100);
+    positiontop = position.top + (1 * position.top/100);
+    $('.firework-1').offset({left: positionleft, top: positiontop}).show();
+
+    positionleft = position.left + (50 * position.left/100);
+    positiontop = position.top;
+    $('.firework-2').offset({left: positionleft, top: positiontop}).show();
+
+    positionleft = position.left + (25 * position.left/100);
+    positiontop = position.top - (2 * position.top/100);
+    $('.firework-3').offset({left: positionleft, top: positiontop}).show();
+
+    positionleft = position.left + (40 * position.left/100);
+    positiontop = position.top + (5 * position.top/100);
+    $('.firework-4').offset({left: positionleft, top: positiontop}).show();
+
+    positionleft = position.left + (5 * position.left/100);
+    positiontop = position.top;
+    $('.firework-5').offset({left: positionleft, top: positiontop}).show();
+
+    positionleft = position.left + (40 * position.left/100);
+    positiontop = position.top + (2 * position.top/100);
+    $('.firework-6').offset({left: positionleft, top: positiontop}).show();
+}
+
+function stop_fireworks() {
+    $('.fireworks').hide();
 }
 
 function show_play_icons() {
-    position = $('#stadium').offset();
+    position = $('#stadium')[0].getBoundingClientRect();;
     positionleft = position.left + (18 * position.left)/100;
     positiontop = position.top - (14 * position.top)/100;
     $('#stadiuminfo').offset({left: positionleft, top: positiontop}).show();
 
     height = $('#stadiuminfo').find('.landmark-info').height();
-    positionleft = positionleft - (positionleft/5);
+    positionleft = positionleft - (10 * positionleft/100);
     positiontop = positiontop - height;
     $('#stadiuminfo').find('.landmark-info').offset({left: positionleft, top: positiontop});
 
 
-    position = $('#b2').offset();
+    position = $('#b2')[0].getBoundingClientRect();;
     positionleft = position.left - (5 * position.left)/100;
     positiontop = position.top - (7 * position.top)/100;
     $('#downtowninfo').offset({left: positionleft, top: positiontop}).show();
 
     height = $('#downtowninfo').find('.landmark-info').height();
-    positionleft = positionleft - (positionleft/10);
+    positionleft = positionleft - (5 * positionleft/100);
     positiontop = positiontop - height;
     $('#downtowninfo').find('.landmark-info').offset({left: positionleft, top: positiontop});
 
 
-    position = $('#bigballoonarea').offset();
+    position = $('#bigballoonarea')[0].getBoundingClientRect();;
     positionleft = position.left - (5 * position.left)/100;
     positiontop = position.top - (4 * position.top)/100;
     $('#balloonplay').offset({left: positionleft, top: positiontop}).show();
 
-    position = $('#rollercoasterpath').offset();
+    position = $('#rollercoasterpath')[0].getBoundingClientRect();;
     positionleft = position.left - (15 * position.left)/100;
     positiontop = position.top - (4 * position.top)/100;
     $('#coasterplay').offset({left: positionleft, top: positiontop}).show();
 
-    position = $('#disneycastle').offset();
+    position = $('#disneycastle')[0].getBoundingClientRect();;
     positionleft = position.left - (25 * position.left)/100;
     positiontop = position.top + (8 * position.top)/100;
     $('#disneyplay').offset({left: positionleft, top: positiontop}).show();
 
-    position = $('#orlandoeyearea').offset();
-    positionleft = position.left - (1 * position.left)/100;
+    position = $('#orlandoeyebackground')[0].getBoundingClientRect();;
+    positionleft = position.left + (15 * position.left)/100;
     positiontop = position.top - (1 * position.top)/100;
     $('#orlandoeyeinfo').offset({left: positionleft, top: positiontop}).show();
 
@@ -107,13 +142,13 @@ function show_play_icons() {
     positiontop = positiontop - height;
     $('#orlandoeyeinfo').find('.landmark-info').offset({left: positionleft, top: positiontop});
 
-    position = $('#kayak').offset();
-    positionleft = position.left + (13 * position.left)/100;
-    positiontop = position.top - (6 * position.top)/100;
+    position = $('#kayakbackground')[0].getBoundingClientRect();;
+    positionleft = position.left + (30 * position.left)/100;
+    positiontop = position.top + (3 * position.top)/100;
     $('#kayakinfo').offset({left: positionleft, top: positiontop}).show();
 
-    height = $('#downtowninfo').find('.landmark-info').height();
-    positionleft = positionleft - (positionleft/10);
+    height = $('#kayakinfo').find('.landmark-info').height();
+    positionleft = positionleft - (5 * positionleft/100);
     positiontop = positiontop - height;
     $('#kayakinfo').find('.landmark-info').offset({left: positionleft, top: positiontop});
 

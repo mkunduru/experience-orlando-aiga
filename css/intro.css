@@ -31,17 +31,15 @@ body {
     margin-bottom: 4em;
 }
 
-.button {
-    /*margin: 10vh auto;*/
+.intro-button {
     background-color: #FF811e;
     font-family: 'Raleway ExtraLight';
     font-size: 24px;
     letter-spacing: 0.5px;
     padding: 0.65em 1em 0.8em 1em;
-    width: 12.5vw;
-    margin-top: 1em;
     box-shadow: -8px 9px 0 rgba(0,0,0,0.1);
     transition: all 0.5s;
+    border-radius: 10px;
 }
 
 .button:hover {
@@ -89,5 +87,24 @@ body {
         width: 15vw;
         font-size: 18px;
         padding: 0.5em 0.6em 0.7em 0.6em;
+    }
+}
+
+@media only screen and (min-width: 2300px) {
+    .character {
+        height: 32vh;
+    }
+
+    .intro {
+        font-size: 128px;
+        line-height: 128px;
+    }
+
+    .position {
+        font-size: 36px;
+    }
+
+    .intro-button {
+        font-size: 32px;
     }
 }

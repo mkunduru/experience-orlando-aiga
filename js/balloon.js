@@ -16,18 +16,23 @@ $(document).ready(function(){
       setInterval(checkCollision, 30);
       bind_game_functions();
   });
+
+  $(window).resize(function(){
+    bind_instruction_text();
+  });
 });
 
 function bind_instruction_text() {
-  position = $('.instruction-collect').offset();
-  positionleft = position.left + (4 * position.left)/100;
-  positiontop = position.top;
-  $('#collecttext').offset({left: positionleft, top: positiontop}).show();
+  position = $('.instruction-collect svg g')[0].getBoundingClientRect();;
+  positionleft = position.left + 40;
+  positiontop = position.top + 20;
+  console.log()
+  $('.instruction-collect .instruction-title').offset({left: positionleft, top: positiontop}).show();
 
-  position = $('.instruction-avoid').offset();
-  positionleft = position.left + (4 * position.left)/100;
-  positiontop = position.top;
-  $('#avoidtext').offset({left: positionleft, top: positiontop}).show();
+  position = $('.instruction-avoid svg g')[0].getBoundingClientRect();;
+  positionleft = position.left + 50;
+  positiontop = position.top + 20;
+  $('.instruction-avoid .instruction-title').offset({left: positionleft, top: positiontop}).show();
 }
 
 /* ==========================================================================

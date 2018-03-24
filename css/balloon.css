@@ -59,7 +59,7 @@ svg {
     color: #fff;
     font-family: 'Chicle', cursive;
     letter-spacing: 1.5px;
-    margin: 0.6em 4.5em 0.6em 6.8em;
+    /*margin: 0.6em 4.5em 0.6em 6.8em;*/
 }
 
 .instruction-collect {
@@ -245,7 +245,7 @@ svg {
 
 .cloud9 {
     left: 70%;
-    width: 150px;
+    width: 200px;
     animation-duration: 13s;
     animation-delay: 0;
 }
@@ -553,7 +553,7 @@ Animations
 @media only screen and (max-width: 1280px) {
     /* Style adjustments for viewports that meet the condition */
     .instruction-title {
-        margin: 0 3vw 0.6vw 12vw;
+        /*margin: 0 3vw 0.6vw 12vw;*/
     }
 
     #balloon {
@@ -579,4 +579,53 @@ Animations
         width: 35px;
     }
 
+}
+
+@media only screen and (min-width: 2300px) {
+    .instruction-title {
+        font-size: 48px;
+    }
+
+    #balloon {
+        height: 150px;
+        width: 150px;
+    }
+
+    .candy,
+    .rock,
+    .bomb{
+        width: 70px;
+    }
+
+    .bird {
+        width: 91px;
+    }
+
+    .hourglass {
+        width: 50px;
+    }
+
+    .lollipop {
+        width: 60px;
+    }
+
+    .cloud2 {
+        width: 200px;
+    }
+
+    .cloud3 {
+        width: 250px;
+    }
+
+    .cloud4 {
+        width: 225px;
+    }
+
+    .cloud5 {
+        width: 150px;
+    }
+
+    .cloud6 {
+        width: 175px;
+    }
 }
