@@ -329,6 +329,45 @@ a {
     }
 }
 
+@media only screen and (max-width: 1500px) {
+    h1 {
+        font: 400 128px/128px 'Chicle', cursive;
+        padding-top: 4%;
+    }
+
+    h4 {
+        font-size: 36px;
+        margin-left: 10vw;
+    }
+
+    h5 {
+        font-size: 21px;
+    }
+
+    .desc {
+        width: 50vw;
+        font-size: 21px;
+        line-height: 34px;
+        margin: 2em auto 0 auto;
+    }
+
+    .subtitle {
+        font-size: 21px;
+    }
+
+    .button {
+        margin-top: 1.5em;
+        font-size: 18px;
+        width: 12vw;
+    }
+
+    .minigames {
+        align-items: center;
+        margin: 0 auto;
+        width: 70vw;
+    }
+}
+
 @media only screen and (min-width: 2300px) {
     .top-fold {
         height: 60vh;

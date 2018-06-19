@@ -200,6 +200,31 @@ body {
     }
 }
 
+@media only screen and (max-width: 1500px) {
+
+    .quote {
+      left: -3vw;
+      top: 3vh;
+      font-size: 250px;
+    }
+
+    .highlight {
+      font-size: 64px;
+      letter-spacing: 0.5px;
+    }
+
+    #bio {
+      font-size: 21px;
+      line-height: 34px;
+      left: 14vw;
+      padding-bottom: 1em;
+    }
+
+    .bio-desc {
+      width: 50vw;
+    }
+}
+
 @media only screen and (min-width: 2300px) {
     .quote {
       left: 0;
