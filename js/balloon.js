@@ -26,7 +26,6 @@ function bind_instruction_text() {
   position = $('.instruction-collect svg g')[0].getBoundingClientRect();;
   positionleft = position.left + 40;
   positiontop = position.top + 20;
-  console.log()
   $('.instruction-collect .instruction-title').offset({left: positionleft, top: positiontop}).show();
 
   position = $('.instruction-avoid svg g')[0].getBoundingClientRect();;

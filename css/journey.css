@@ -178,8 +178,8 @@ body {
 @media only screen and (max-width: 1280px) {
 
     .quote {
-      left: 0;
-      top: 6vh;
+      left: -3vw;
+      top: 4vh;
       font-size: 200px;
     }
 
@@ -196,11 +196,17 @@ body {
     }
 
     .bio-desc {
-      width: 66vw;
+      width: 50vw;
     }
 }
 
 @media only screen and (min-width: 2300px) {
+    .quote {
+      left: 0;
+      top: 6vh;
+      font-size: 200px;
+    }
+
     .cloud4 {
         width: 7vw;
     }

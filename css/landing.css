@@ -278,6 +278,7 @@ a {
 
     h4 {
         font-size: 28px;
+        margin-left: 10vw;
     }
 
     h5 {
@@ -287,6 +288,7 @@ a {
     .desc {
         width: 50vw;
         font-size: 18px;
+        line-height: 28px;
         margin: 2em auto 0 auto;
     }
 
@@ -298,6 +300,12 @@ a {
         margin-top: 1.5em;
         font-size: 18px;
         width: 12vw;
+    }
+
+    .minigames {
+        align-items: center;
+        margin: 0 auto;
+        width: 70vw;
     }
 
     .minigame {
